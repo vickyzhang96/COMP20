@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> JS TRYit</title>
+
+<body>
+    <script language="javascript">
+    q_hotdog = prompt ("Welcome! How many hotdogs would you like?", "");
+    q_fries = prompt ("How many fries would you like?", "");
+    q_drink = prompt ("How many drinks would you like?", "");
+
+    orig_subtotal = q_hotdog * 3.25 + q_fries * 2 + q_drink * 1.5;
+
+    document.write("Thanks for ordering!" + "<br>" + "<br>");
+    
+    document.write("Items ordered: " + "<br>" +
+                   "- Hotdog: x" + q_hotdog + "<br>" +
+                   "- Fries: x" + q_fries + "<br>" +
+                   "- Drink: x" + q_drink + "<br>" + "<br>")
+                   
+    if (orig_subtotal >= 20) {
+        disc_subtotal = orig_subtotal * 0.9; //10% discount 
+        document.write("10% off :)" + "<br>" + "<br>");
+    } else {
+        disc_subtotal = orig_subtotal;       //no discount
+        document.write("No discount applied :/" + "<br>" + "<br>");
+    }
+    
+    tax = disc_subtotal * 0.0625;  // tax   
+     
+    document.write("----------------------------" + "<br>" +
+                   "SUBTOTAL: $" + disc_subtotal.toFixed(2) + "<br>" +
+                   "TAX: $" + tax.toFixed(2) + "<br>" +
+                   "TOTAL DUE: $" + (disc_subtotal + tax).toFixed(2) + 
+                   "<br>");
+    
+
+    
+    // document.write("Next year, " + name + 
+    //                 " will be " + (parseInt(age) + 1) + " years old.");
+    // 
+    // n1 = 5;
+    // n2 = 10;
+    // if (n1 > n2) {
+    //     // alert("n1 is bigger");
+    //     document.write("n1 is bigger");
+    //     n1++;
+    // } else {
+    //     document.write("n2 is bigger");
+    // }
+    </script>
+</body>
+</html>
