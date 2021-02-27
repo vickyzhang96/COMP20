@@ -1,0 +1,9 @@
+song {display:block; border-bottoms: 1px solid #1E3FD1; padding: 8px 20px; color: #2D3B4F;}
+song title {font-family: 'Didot', 'serif'; font-size: 30px; font-weight: 700;}
+song artist:before { content: "Artist : ";}
+song genre:before {content: "Genre : ";}
+song year:before {content: "Year : ";}
+song artist, song genre, song year {display:block; font-family: 'Gill Sans', 'sans-serif'; font-size: 10pt; color: #002999;}
+
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href = "songlist.css" ?>
+<songs>
+    <song>
+        <title>Willow</title>
+        <artist>Taylor Swift</artist>
+        <genre>alternative</genre>
+        <year>2020</year>
+    </song>
+    
+    <song>
+        <title>Pink + White</title>
+        <artist>Frank Ocean</artist>
+        <genre>RnB</genre>
+        <year>2016</year>
+    </song>
+    
+    <song>
+        <title>Simple</title>
+        <artist>Florida Georgia Line</artist>
+        <genre>Country</genre>
+        <year>2018</year>
+    </song>
+    
+    <song>
+        <title>Home</title>
+        <artist>Pentatonix</artist>
+        <genre>Pop</genre>
+        <year>2020</year>
+    </song>
+    
+    <song>
+        <title>Formation</title>
+        <artist>Beyonce</artist>
+        <genre>Hiphop</genre>
+        <year>2016</year>
+    </song>
+    
+    <song>
+        <title>King of My Heart</title>
+        <artist>Bethel Music</artist>
+        <genre>Christian</genre>
+        <year>2015</year>
+    </song>
+    
+    <song>
+        <title>Chemtrails Over The Country Club</title>
+        <artist>Lana Del Rey</artist>
+        <genre>Alternative</genre>
+        <year>2021</year>
+    </song>
+    
+    <song>
+        <title>Heaven Is A Place On Earth</title>
+        <artist>Belina Carlisle</artist>
+        <genre>Pop</genre>
+        <year>1987</year>
+    </song>
+    
+    <song>
+        <title>All That Matters</title>
+        <artist>Laura Michelle Kelly</artist>
+        <genre>Musical</genre>
+        <year>2015</year>
+    </song>
+    
+    <song>
+        <title>Blinding Lights</title>
+        <artist>The Weeknd</artist>
+        <genre>Pop</genre>
+        <year>2020</year>
+    </song>
+    
+</songs>    
+            
