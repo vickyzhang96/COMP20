@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> comp20 hw5 Lottery Simulator </title>
+
+<body>
+    <script language="javascript">
+
+        random_set = [0, 0, 0, 0, 0];
+    
+        function get_random_num(num){
+          return (Math.random() * num + 1).toFixed(0);
+        }
+        
+        for (i = 0; i < 5; i++) {
+          random_set[i] = get_random_num(47);
+        } 
+        
+        random_set.sort(function(a, b){return a - b});
+        
+        document.write("The numbers picked are: ");
+        for (i = 0; i < 5; i++){
+            document.write(random_set[i] + " ");
+        }
+        document.write("<br>");
+        random_lucky = get_random_num(17);
+        document.write("The lucky ball picked is: " + random_lucky);
+        document.write("<br>");
+        document.write("<br>");
+
+        
+        winning_num = prompt("Enter winning numbers seperated by a space", "4 30 15 24 33");
+        lucky_ball = prompt("Enter lucky ball number", "16");
+        
+        winning_set = [0, 0, 0, 0, 0];
+        
+        for (i = 0; i < 5; i++) {
+            winning_set[i] = parseInt(winning_num);
+            start = winning_num.indexOf(" ");
+            winning_num = winning_num.substring(start+1, winning_num.length);
+        }
+        
+        document.write("The winning numbers are: ");
+        for (i = 0; i < 5; i++){
+          document.write(winning_set[i] + " ");
+        }
+        document.write("<br>");
+        
+        document.write("The winning lucky ball number is " + lucky_ball);
+        document.write("<br>");
+        document.write("<br>");
+        
+        match_num = 0;
+        match_lucky = 0;
+        for (i=0; i<5; i++){
+            for (j=0; j<5; j++){
+                if (random_set[i] == winning_set[j]){
+                    match_num++;
+                }
+            }
+        }
+        document.write("You have " + match_num + " matching numbers" + "<br>");
+        
+        if (random_lucky == lucky_ball){
+            match_lucky = 1;
+            document.write("Your lucky ball matched!" + "<br>");
+        } else {
+            document.write("Your lucky ball did NOT match." + "<br>");
+        }
+        document.write("<br>");
+
+        var prize;
+        lose = false;
+        
+        if (match_num >= 5 && match_lucky == 1){
+            prize = "7000 a WEEK for LIFE";
+        } else if (match_num == 5 && match_lucky == 0){
+            prize = "25,000 a YEAR for LIFE";
+        } else if (match_num == 4 && match_lucky == 1){
+            prize = 5000;
+        } else if (match_num == 4 && match_lucky == 0){
+            prize = 200;
+        } else if (match_num == 3 && match_lucky == 1){
+            prize = 150;
+        } else if (match_num == 3 && match_lucky == 0){
+            prize = 20;
+        } else if (match_num == 2 && match_lucky == 1){
+            prize = 25;
+        } else if (match_num == 2 && match_lucky == 0){
+            prize = 3;
+        } else if (match_num == 1 && match_lucky == 1){
+            prize = 6;
+        } else if (match_num == 0 && match_lucky == 1){
+            prize = 4;
+        } else {
+            prize = 0;
+            lose = true;
+        }
+
+        if (lose){
+            document.write("You win $0. Sad.");
+        } else {
+            document.write("CONGRATULATIONS! You win $ " + prize);
+        }
+
+    </script>
+</body>
+</html>
