@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> comp20 hw6 Amicable Number </title>
+
+<script language="javascript">
+
+    function isAFactor(x,y) // checks if y is a factor of x
+    {
+        if (x % y == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    function Number(num) //a number object
+    {
+        this.num = num;
+        var arr = [];
+        var sum = 0;
+        for (i = 1; i < num; i++) {
+            if (isAFactor(num, i)) {
+                arr.push(i);
+                sum += i;
+            }
+        }
+        this.factors = arr;
+        this.factors_sum = sum;
+    }
+    
+    function check_ami()
+	{
+        num1 = new Number(parseInt(document.getElementById("number1").value));
+        num2 = new Number(parseInt(document.getElementById("number2").value));
+                
+        if (num1.factors_sum == num2.num && 
+            num2.factors_sum == num1.num) {
+            document.getElementById("result").innerHTML= "The numbers: " + 
+            document.getElementById("number1").value + " and " + 
+            document.getElementById("number2").value + " are amicable";
+        } else {
+            document.getElementById("result").innerHTML= "The numbers: " + 
+            document.getElementById("number1").value + " and " + 
+            document.getElementById("number2").value + " are not amicable";
+        }
+        
+        alert("Factors of num1: " + num1.factors.join(' ') + "\n" + 
+              "Factors of num2: " + num2.factors.join(' ') + "\n");
+	}    
+</script>
+</head>
+
+<body>
+    <form>
+    	Enter a number:  <input type="number" id="number1"> <br>
+        Enter another number:  <input type="number" id="number2"> <br>
+        <input type='button' value = "Submit!" onclick="check_ami()" id="btn1">
+        <br> <br>
+        
+        <div id='result'>&nbsp;</div>
+        <div id='show_factors'>&nbsp;</div>
+	</form>
+</body>
+</html>
