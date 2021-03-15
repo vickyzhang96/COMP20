@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> Joe's Hotdog Ordering</title>
+<style type="text/css">
+    .errMsg {color: #D20E11; border: solid 1px #d20e11; display:none;  padding: 1px 15px;	}
+
+</style>
+<script language="javascript">
+
+		function MenuItem(name, cost)
+		{
+			this.name = name;
+			this.cost=cost;
+		}
+
+		menuItems = new Array(
+			new MenuItem("Hotdog", 3.25),
+			new MenuItem("Fries", 2),
+			new MenuItem("Soda", 1.5),
+		);
+
+		function makeSelect(name)
+		{
+			var t= "";
+			t = "<select id='" + name + "'>";
+			for (j=0; j<=5; j++)
+			   t += "<option value=\"" + j + "\">" + j + "</option>";
+			t += "<option value=\"10\">" + 10 + "</option>";
+            t += "<option value=\"15\">" + 15 + "</option>";
+            t += "<option value=\"20\">" + 20 + "</option>";
+            t += "</select>"; 
+			return t;
+		}
+        
+        function validate()
+    	{
+    		// alert("validating");
+            var q_hotdog = document.getElementById("Hotdog");
+            var q_fries = document.getElementById("Fries");
+            var q_drink = document.getElementById("Soda");
+            if (q_hotdog.value + q_fries.value + q_drink.value == 0) {
+            //If the "Please Select" option is selected display error.
+                document.getElementById("noOrder").style.display = "block";
+                return false;
+            } else {
+                document.getElementById("noOrder").style.display = "none";
+                priceOutput = calcPrice(q_hotdog.value, q_fries.value, q_drink.value);
+                alert(priceOutput);
+            }
+            return true;
+            
+    	}
+        
+        function calcPrice(q_hotdog, q_fries, q_drink)
+        {
+            var t = "";    
+            t = "Thanks for ordering!\n";        
+            t += "Items ordered: \n"+
+                           "- Hotdog: x" + q_hotdog + "\n" +
+                           "- Fries: x" + q_fries + "\n" +
+                           "- Drink: x" + q_drink + "\n\n";
+            
+            orig_subtotal = q_hotdog * 3.25 + q_fries * 2 + q_drink * 1.5;
+            
+            if (orig_subtotal >= 20) {
+                disc_subtotal = orig_subtotal * 0.9; //10% discount 
+                t += "10% off :)\n";
+            } else {
+                disc_subtotal = orig_subtotal;       //no discount
+                t += "No discount applied :/\n";
+            }
+            
+            tax = disc_subtotal * 0.0625;  // tax           
+            t += "\n----------------------------\n" +
+                   "SUBTOTAL: $" + disc_subtotal.toFixed(2) + "\n" +
+                   "TAX: $" + tax.toFixed(2) + "\n" +
+                   "TOTAL DUE: $" + (disc_subtotal + tax).toFixed(2) + 
+                   "\n";            
+            return t;
+        }
+        
+	</script>
+</head>
+
+<body>
+        
+    <h1>Joe's Hotdog</h1>
+    
+    <form 
+        name = "data"
+    >
+		<!-- onsubmit="return validate()" -->
+		<table border="0" cellpadding="3">
+			<tr>
+				<th>Select Item</th>
+				<th>Item Name</th>
+				<th>Price</th>
+			</tr>
+		
+			<script language="javascript">
+				var s = "";
+				for (i=0; i< menuItems.length; i++)
+				{
+				  	s += "<tr><td>";
+				  	s += makeSelect(menuItems[i].name);
+				  	s += "</td><td>" + menuItems[i].name + "</td>";
+				  	s += "<td> $ " + menuItems[i].cost.toFixed(2) + "</td>";
+				}
+				document.writeln(s);
+			</script>
+		</table>
+        <br>
+        
+        <div id="noOrder" class="errMsg">Aren't you hungry? Order something please.</div><br /> 
+		<input type = "submit" value = "Submit Order" onclick="return validate()"/>
+	</form>
+    
+</body>
+</html>
