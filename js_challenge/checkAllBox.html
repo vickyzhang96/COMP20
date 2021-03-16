@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> checkAllBox JS Challenge</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script language="javascript">
+    function check(){
+      var b = document.getElementsByName("box");
+      if (b[0].checked == true){  //if first box checked, turn all other boxes on
+          b[1].checked = true;
+          b[2].checked = true;
+          b[3].checked = true;
+          b[4].checked = true;
+          document.getElementById("txt").innerHTML = "Uncheck All";
+      }else{                      //if first box NOT checked, turn all other boxes off
+          b[1].checked = false;
+          b[2].checked = false;
+          b[3].checked = false;
+          b[4].checked = false;
+          document.getElementById("txt").innerHTML = "Check All";
+      }
+    }
+</script>
+</head>
+
+<body>
+    <!-- form starts -->
+    <form action='#' method='post'>
+        <div>
+            <input type="checkbox" id="box1" name="box" value="box1" onclick="check()">
+            <label for="box1"><label id = "txt">Check All</label></label>
+        </div>
+        <div>
+            <input type="checkbox" id="box2" name="box" value="box2">
+            <label for="box2">box2</label>
+        </div>
+        <div>
+            <input type="checkbox" id="box3" name="box" value="box3">
+            <label for="box3">box3</label>
+        </div>
+        <div>
+            <input type="checkbox" id="box4" name="box" value="box4">
+            <label for="box4">box4</label>
+        </div>
+        <div>
+            <input type="checkbox" id="box5" name="box" value="box5">
+            <label for="box5">box5</label>
+        </div>
+        <br>
+	</form>
+    <!-- form ends -->
+</body>
+</html>
