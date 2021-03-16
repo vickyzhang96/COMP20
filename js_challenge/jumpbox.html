@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta/>
+<title>Jumpy boxes 3/15/2021</title>
+</head>
+
+<body>
+  <input type="text" name="box1" value="abc"/>
+  <input type="button" name ="jumpBut" value="JUMP>" onclick="jump()"/>
+  <input type="text" name="box2" value=""/>
+</body>
+
+<script language="javascript">
+  jumpButton = document.getElementsByName("jumpBut")[0];
+  b1 = document.getElementsByName("box1")[0];
+  b2 = document.getElementsByName("box2")[0];
+  
+  function jump(){
+    var none = "";
+    var jumpRight = "JUMP>";
+    var jumpLeft = "<JUMP";
+    if (jumpButton.value == jumpRight){
+        b2.value = b1.value;
+        b1.value = none;
+        jumpButton.value = jumpLeft;
+    }else{
+        b1.value = b2.value;
+        b2.value = none;
+        jumpButton.value = jumpRight;
+    }
+  }
+</script>
+
+</html>
